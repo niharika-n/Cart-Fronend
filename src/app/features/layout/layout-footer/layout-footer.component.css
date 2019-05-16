@@ -1,0 +1,52 @@
+a {
+    cursor: pointer;
+}
+
+.background-image {
+    background: url('../../../../assets/images/background.jpg');
+    width: 100%;
+    float: left;
+}
+
+h5 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 80;
+    color: darkslategray;
+    display: inline;
+}
+
+h6 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: darkslategray;
+    display: inline;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+i {
+    color: slategray;
+}
+
+.icons {
+    font-size: 1.2em;
+}
+
+.row {
+    flex-wrap: initial;
+}
+
+.footer-content {
+    padding-left: 50px;
+}
+
+.footer-copyright {
+    background: whitesmoke;
+}
+
+.footer-list {
+    text-align: left;
+    margin: 20px 0 20px 0;
+}

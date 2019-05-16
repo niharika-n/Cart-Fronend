@@ -1,0 +1,63 @@
+.carousel-caption {
+    color: #212529;
+    text-align: right;
+}
+
+.carousel {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.card {
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.card-image {
+    height: 250px;
+    background-size: cover;
+    background-color: rgba(151, 147, 147, 0.65);
+    background-blend-mode: multiply;
+}
+
+.card-title {
+    color: white;
+    font-size: 30px;
+}
+
+.card-content {
+    padding-top: 6rem !important;
+    padding-bottom: 3rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    text-align: center;
+    color: whitesmoke;
+}
+
+h4 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    color: darkslategrey;
+}
+
+h3 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    color: darkslategrey;
+}
+
+.loader-mid {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.loader-mid .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

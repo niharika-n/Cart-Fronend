@@ -1,0 +1,28 @@
+<div class="table-responsive" *ngIf="productReviews != ''; else noReviews">
+    <br>
+    <table class="table table-sm table-borderless" *ngFor="let review of productReviews">
+        <tr>
+            <th class="review-heading noPadding">
+                <bar-rating [rate]="review.rating" [theme]="'fontawesome-o'" [max]="5" [titles]="['1', '2' , '3', '4', '5']">
+                </bar-rating>
+                <span class="rating-title">{{review.reviewTitle}}</span>
+            </th>
+        </tr>
+        <tr>
+            <td class="noPadding">
+                <p class="review-detail">{{review.review}}</p>
+                <p class="text-muted review-userDetail">{{review.userName}}, {{review.ratingDate | date}}</p>
+                <hr class="review-division">
+            </td>
+        </tr>
+    </table>
+    <nav>
+        <app-paging [pager]="pager" (selectedPage)='pageSelect($event)'></app-paging>
+    </nav>
+</div>
+<ng-template #noReviews>
+    <br>
+    <h6 translate>
+        pdt-detail.review-first
+    </h6>
+</ng-template>

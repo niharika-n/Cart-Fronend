@@ -1,0 +1,27 @@
+<div class="clearfix">
+</div>
+<section class=" bg-light nav-margin">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="collapse navbar-collapse navbar-custom-content" *ngIf="newArr.length>0">
+                        <ul class="navbar-center navbar-nav navbar-parent">
+                            <ng-template #menu let-newArr>
+                                <li class="nav-item dropdown" *ngFor="let category of newArr | slice:0:6">
+                                    <a class="nav-link" [ngClass]="{'navbar-children': !category.parentCategory, 'parentName': category.parentCategory}" (click)="selectCategory(category)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{category.categoryName}}
+                  </a>
+                                    <ul class="dropdown-menu" *ngIf="category.children != null && category.children.length > 0">
+                                        <ng-container class="dropdown-item" *ngTemplateOutlet="menu; context:{ $implicit: category.children }"></ng-container>
+                                    </ul>
+                                </li>
+                            </ng-template>
+                            <ng-container *ngTemplateOutlet="menu; context:{ $implicit: newArr }"></ng-container>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>

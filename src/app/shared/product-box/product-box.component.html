@@ -1,0 +1,18 @@
+<div class="loader-mid" appSpinner>
+    <mat-spinner mode="indeterminate" strokeWidth="3" [diameter]="60" class="loading">
+    </mat-spinner>
+</div>
+<div *ngIf="pdt != null">
+    <div class="card" (productDetail)="pdt.detail.productId">
+        <div class="card-image" *ngIf="pdt.src!==null" [style.background-image]="'url('+ pdt.src +')'" alt="pdt.detail.categoryName"></div>
+        <div class="card-body">
+            <h5 class="card-title">{{pdt.detail.productName}}</h5>
+            <p class="card-text body-detail">{{pdt.detail.shortDescription}}</p>
+            <p class="card-price price new-price body-detail" *ngIf="pdt.detail.discountPercent !== null">
+                ₹{{math.round((pdt.detail.price)*(1-pdt.detail.discountPercent/100))}}</p>
+            <p class="card-price body-detail" [ngClass]="pdt.detail.discountPercent === null ? 'price':'discount-price'">₹{{pdt.detail.price}}</p>
+            <p class="card-price discount body-detail" *ngIf="pdt.detail.discountPercent !== null">
+                ({{pdt.detail.discountPercent}}% off)</p>
+        </div>
+    </div>
+</div>

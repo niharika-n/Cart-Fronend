@@ -1,0 +1,60 @@
+.form-input {
+    display: inline-block;
+    width: 65%;
+}
+
+label {
+    margin-left: 20px;
+    width: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: darkslategrey;
+    vertical-align: top;
+    margin-bottom: 0px;
+}
+
+textarea {
+    height: 65px;
+    resize: none;
+}
+
+#reviewForm {
+    margin: 0 !important;
+    padding: 10px;
+}
+
+.rating-division {
+    margin-bottom: 0 !important;
+    display: flex;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.rating-form-background {
+    background: aliceblue;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+.rating-label {
+    margin-top: 15px;
+}
+
+.icon-delete {
+    align-self: flex-end;
+    color: #17a2b8;
+    font-size: 1.5rem;
+    text-align: left;
+    text-align-last: left;
+    margin-left: 562px;
+    cursor: pointer;
+}
+
+.custom-error {
+    font-size: 80%;
+    color: #dc3545;
+    margin-left: 90px;
+}

@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-2 col-sm-2 col-12" *ngFor="let p of parent">
+        <app-category-sidebar [category]="p" [selectedCategory]="selectedCategory[0]"></app-category-sidebar>
+    </div>
+    <div class="col-md-10 col-sm-10 col-12">
+        <div *ngIf="selectedCategory.length > 0 && selectedCategory[0].parentCategory === true">
+            <div class="loader-mid" appSpinner>
+                <mat-spinner mode="indeterminate" strokeWidth="3" [diameter]="60" class="loading">
+                </mat-spinner>
+            </div>
+            <div class="category-detail" *ngFor="let s of selectedCategory">
+                <div class="container parent-image">
+                    <img id="category-image-display" src={{s.imageContent}} alt={{s.categoryName}}>
+                </div>
+                <div class="card category-title">
+                    <div class="card-title">
+                        <h2>
+                            {{s.categoryName}}
+                        </h2>
+                    </div>
+                    <div class="card-text">
+                        {{s.categoryDescription}}
+                    </div>
+                </div>
+            </div>
+            <div class="header-nav content" *ngIf="selectedCategory.length > 0 && selectedCategory[0].children.length > 0">
+                Shop from
+                <hr>
+            </div>
+            <div class="card-deck" *ngFor="let child of childCount">
+                <div (click)="changeCategory(c)" class="card category-child" *ngFor="let c of selectedCategory[0].children | slice:child*3:child*3+3">
+                    <div class="card-image" [style.background-image]="'url('+ c.imageContent +')'" *ngIf="c.imageContent !== null" alt="c.categoryName">
+                        <div class="card-content">
+                            <div>
+                                <h3 class="card-title child-title">{{c.categoryName}}</h3>
+                                <p class="card-text child-desc">{{c.categoryDescription}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="selectedCategory.length > 0 && selectedCategory[0].parentCategory !== true">
+            <app-product-list-customer [category]="selectedCategory[0]"></app-product-list-customer>
+        </div>
+    </div>
+</div>

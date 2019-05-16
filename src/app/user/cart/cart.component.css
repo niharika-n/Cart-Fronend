@@ -1,0 +1,142 @@
+.title {
+    height: 60px;
+    padding: 10px 20px;
+    background: aliceblue;
+}
+
+h2 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 300;
+}
+
+h3 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 300;
+}
+
+h4 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 300;
+}
+
+.image {
+    height: 120px;
+    overflow: hidden;
+}
+
+.row {
+    margin: 20px 10px 10px 10px;
+}
+
+.price {
+    color: rgb(156, 30, 30);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.pdt-name {
+    font-size: 17px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 600;
+}
+
+.pdt-image {
+    text-align: center;
+    width: inherit;
+    overflow: hidden;
+}
+
+p {
+    margin: 0;
+}
+
+.short-desc {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pdt-link {
+    padding-top: 30px;
+}
+
+a {
+    cursor: pointer;
+    color: #17A2B8 !important;
+    padding: 0 15px;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
+.message-list {
+    text-align: center;
+    margin: 100px 0;
+}
+
+.border {
+    border-radius: 4px;
+}
+
+.innner-rows {
+    padding: 15px;
+}
+
+.loader-mid {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.loader-mid .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.order-title {
+    font-size: 20px;
+    color: slategray;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.quantity {
+    display: flex;
+    padding-top: 10px;
+}
+
+.quantity-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: darkslategray;
+    padding: 5px 10px 10px 0;
+}
+
+.quantity-value {
+    height: 30px;
+    width: 65px;
+}
+
+.order-division {
+    padding-left: 30px;
+}
+
+th {
+    font-weight: 500;
+    font-size: 15px;
+    color: slategray;
+    padding: .5rem;
+}
+
+td {
+    font-size: 15px;
+    color: slategray;
+    padding: .5rem;
+}

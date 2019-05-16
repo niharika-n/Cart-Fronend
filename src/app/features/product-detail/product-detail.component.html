@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="loader-mid" appSpinner>
+        <mat-spinner mode="indeterminate" strokeWidth="3" [diameter]="60" class="loading">
+        </mat-spinner>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-5 col-sm-5" *ngIf="productImages !== null && productImages.length > 0">
+            <div class="image-container product-image"></div>
+            <img class="image-display img-fluid" [src]="productImages[0].src">
+        </div>
+        <div class="col-12 col-md-7 col-sm-7" *ngIf="productDetail !== null">
+            <h4>{{productDetail.productName}}</h4>
+            <div class="rating-display">
+                <h4 class="rating-val">{{totalRating}}</h4>
+                <i class="icon rating-star fa fa-star"></i>
+            </div>
+            <hr class="name-division-bar">
+            <p class="price new-price" *ngIf="productDetail.discountPercent !== null">
+                ₹{{math.round((productDetail.price)*(1-productDetail.discountPercent/100))}}</p>
+            <p [ngClass]="productDetail.discountPercent === null ? 'price':'discount-price'">₹{{productDetail.price}}</p>
+            <p class="discount" *ngIf="productDetail.discountPercent !== null">({{productDetail.discountPercent}}% off)</p>
+            <div class="quantity">
+                <p class="quantity-label" translate>pdt-detail.quantity</p>
+                <input class="form-control quantity-input col-md-2 col-sm-2" value="1" type="number" #quantity min="1" max="10">
+            </div>
+
+            <div class="buttons-wishlist">
+                <button type="button" class="btn btn-info" (click)="addToCart(productDetail.productId, quantity.value)"><i
+            class="icon fa fa-shopping-cart"></i>
+          <p class="text-btn" translate>pdt-detail.add-to-cart</p>
+        </button>
+                <button type="button" class="btn btn-outline-secondary" (click)="addToWishlist(productDetail.productId)"><i
+            class="icon fa fa-heart"></i>
+          <p class="text-btn" translate>pdt-detail.add-to-wishlist</p>
+        </button>
+            </div>
+            <h6>{{productDetail.shortDescription}}</h6>
+            <div class="tab-division">
+                <mat-tab-group>
+                    <mat-tab label="Description" class="tab-label">
+                        <ng-template matTabContent>
+                            <br>
+                            <div class="product-description">{{productDetail.longDescription}}</div>
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="Product Information">
+                        <ng-template matTabContent>
+                            <br>
+                            <div *ngIf="productAttributes != ''; else emptyDetails">
+                                <h6 translate>
+                                    pdt-detail.tech-detail
+                                </h6>
+                                <div class="table-responsive attr-table">
+                                    <table class="table table-sm table-bordered">
+                                        <tr *ngFor="let attr of productAttributes">
+                                            <th>{{attr.attributeName}}</th>
+                                            <td>{{attr.value}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <ng-template #emptyDetails>
+                                <h6 translate>pdt-detail.empty-detail</h6>
+                            </ng-template>
+                        </ng-template>
+                    </mat-tab>
+                    <mat-tab label="Reviews">
+                        <ng-template matTabContent>
+                            <br>
+                            <div class="row noPadding">
+                                <div class="col-md-12  col-sm-12 rating-review-division">
+                                    <div class="rating-display">
+                                        <h4 class="rating-val">{{totalRating}}</h4>
+                                        <bar-rating [rate]="totalRating" [max]="5" [theme]="'fontawesome-o'" [titles]="['1', '2' , '3', '4', '5']">
+                                        </bar-rating>
+                                    </div>
+                                    <button type="button" class="btn btn-info review-btn" (click)="addReview()" translate>pdt-detail.review-add</button>
+                                </div>
+                                <div *ngIf="isLoggedIn && showReview" class="col-md-12 col-sm-12">
+                                    <i class="fa fa fa-times-circle icon-delete" (click)="hideReview()"></i>
+                                    <app-review-features [productId]="productDetail.productId" (reviewAdded)="updateReviews($event)">
+                                    </app-review-features>
+                                </div>
+                                <div class="col-md-12  col-sm-12">
+                                    <app-product-reviews [productId]="productDetail.productId">
+                                    </app-product-reviews>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="row">
+    <div id="multi-item" class="carousel slide carousel-multi-item" data-ride="carousel" data-interval="false">
+        <a class="btn-floating" href="#multi-item" data-slide="prev"><i class="fa fa-chevron-circle-left"></i></a>
+        <ol class="carousel-indicators">
+            <li data-target="#multi-item" *ngFor="let p of productDislpayArr;let i = index" [attr.data-slide-to]="i" [ngClass]="i == 0 ? 'active' : ''"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item" *ngFor="let j of pageCount; let k = index" [ngClass]="k == 0 ? 'active' : ''">
+                <div class="col-md-2 pdt-card" *ngFor="let product of productDisplayArr | slice:j*6: j*6 + 6">
+                    <div class="loader-mid" appSpinner>
+                        <mat-spinner mode="indeterminate" strokeWidth="3" [diameter]="60" class="loading">
+                        </mat-spinner>
+                    </div>
+                    <app-product-box [pdt]="product"></app-product-box>
+                </div>
+            </div>
+        </div>
+        <a class="btn-floating" href="#multi-item" data-slide="next"><i class="fa fa-chevron-circle-right"></i></a>
+    </div>
+</div>

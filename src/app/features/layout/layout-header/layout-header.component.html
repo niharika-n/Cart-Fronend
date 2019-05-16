@@ -1,0 +1,71 @@
+<div class="navbar fixed-top ">
+    <section class="background-image">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="navbar-brand" [routerLink]="['']">
+                        <a>
+                            <img src="../../../../assets/images/logo_training.png" />
+                            <h2 translate>
+                                admin-layout.title
+                            </h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="nav navbar-nav navbar-right">
+                        <ul>
+                            <li class="nav-li">
+                                <form class="form-custom">
+                                    <span class="input-group-text">
+                    <i class="fa fa-search"></i>
+                  </span>
+                                    <input class="form-control search-box" type="search" placeholder="{{'layout.search-placeholder' | translate}}" aria-label="Search">
+                                </form>
+                            </li>
+                            <li class="nav-li pointer account" data-toggle="dropdown">
+                                <span class="top-nav">
+                  <i class="dropdown fa fa-user icons" aria-expanded="true"></i>
+                  <div class="icon-text" translate>layout.account</div>
+                  <div class="dropdown-menu">
+                    <span *ngIf="loginModel != null">
+                      <a class="dropdown-item">
+                        <span *ngIf="loginModel.imageContent != null; else userImagePath">
+                          <img [src]="loginModel.imageContent" class="img-fluid user-img">
+                        </span>
+                                <ng-template #userImagePath>
+                                    <img src="../../assets/images/UserImages/alternate.jpg" class="img-fluid user-img">
+                                </ng-template>
+                                </a>
+                                <a class="dropdown-item">{{loginModel.firstName}}&nbsp;{{loginModel.lastName}}</a>
+                                <a class="dropdown-item" translate>admin-layout.settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)" (click)="logout()" translate>admin-layout.logout</a>
+                                </span>
+                                <span *ngIf="loginModel == null">
+                      <a class="dropdown-item" [routerLink]="['/login']" translate>layout.login</a>
+                      <a class="dropdown-item" [routerLink]="['/register']" translate>layout.sign-up</a>
+                    </span>
+                    </div>
+                    </span>
+                    </li>
+                    <li class="nav-li pointer" [routerLink]="['//wishlist']">
+                        <span class="top-nav">
+                  <i class="fa fa-heart icons"></i>
+                  <div class="icon-text" translate>layout.wishlist</div>
+                </span>
+                    </li>
+                    <li class="nav-li pointer" [routerLink]="['//cart']">
+                        <span class="top-nav">
+                  <strong class="cart-text" *ngIf="isQuant">{{quantity}}</strong>
+                  <i class="fa fa-shopping-cart icons"></i>
+                  <div class="icon-text" translate>layout.cart</div>
+                </span>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+</section>
+</div>

@@ -1,0 +1,67 @@
+<a title="{{'product-detail.add-attr' | translate}}" class="addnewLink" id="addnewAttribute" (click)="showAttributeValueForm()" translate>product-detail.add-attr</a>
+<div *ngIf="isAttribute">
+    <form #attributeForm="ngForm" (ngSubmit)="addAttribute(AttributeID.value,AttrValue.value,attributeForm)" class="form-group" novalidate>
+        <br>
+        <br>
+        <div>
+            <label for="AttributeID" translate>product-detail.attr</label>
+            <select id="AttributeID" class="form-control form-input" name="AttributeID" #AttributeID [(ngModel)]="model.attributeID" [ngClass]="{ 'is-invalid': AttributeID.errors && submitted}" required>            
+<option value="0" selected="true" disabled translate>product-detail.select</option>
+<option [value]="attribute.attributeId" *ngFor="let attribute of AttributeArr">{{attribute.attributeName}}</option>
+</select>
+            <div *ngIf="submitted && AttributeID.errors?.required" class="error-message" translate>required</div>
+        </div>
+        <br>
+        <div>
+            <label for="AttrValue" translate>product-detail.val </label>
+            <input type="text" maxlength="20" class="form-control form-input" autocomplete="off" name="AttrValue" #AttrValue [(ngModel)]="model.value" [ngClass]="{ 'is-invalid ': AttrValue.errors && submitted}" (keyup)="attributeValMessage=='' || attributeValCheck($event)"
+                id="AttrValue" required />
+            <div *ngIf="submitted && AttrValue.errors?.required" class="error-message" translate>required</div>
+            <div *ngIf="attributeValMessage!=''" class="error-message">{{attributeValMessage}}</div>
+        </div>
+        <br>
+        <div id="div-btn">
+            <label></label>
+            <button type="submit" class="btn btn-info" title="{{'common.add' | translate}}" translate>common.add</button>&nbsp;
+            <button type="reset" value="{{'common.reset' | translate}}" class="btn btn-secondary" title="{{'common.reset' | translate}}" (click)="resetForm(attributeForm)" translate>common.reset</button>
+        </div>
+    </form>
+
+</div>
+<div *ngIf="!isAttribute">
+    <div *ngIf="!attributeMessage">
+        <div class=" col-md-12 page-size">
+            <b translate>common.page-size</b> &nbsp;
+            <select #pageSize (change)="sizeSelect(pageSize.value)">
+          <option value=4 >4</option>
+          <option value=7 >7</option>
+          <option value=10 >10</option>
+        </select>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th translate>product-detail.attr</th>
+                    <th translate>product-detail.val</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor='let attribute of attributeValues '>
+                    <td>{{attribute.attributeName}}</td>
+                    <td>{{attribute.value}}</td>
+                    <td class="table-icons">
+                        <a (click)="getDetailAttribute(attribute.id)"><i class="fa fa-pencil icon" aria-hidden="true" title="{{'common.edit-title' | translate}}"></i>
+            </a>&nbsp;&nbsp;&nbsp;
+                        <a (click)="deleteAttribute(attribute.id)"><i class="fa fa-times icon" aria-hidden="true" title="{{'common.delete-title' | translate}}"></i>
+            </a>
+                    </td>
+                </tr>
+            </table>
+            <nav>
+                <app-paging [pager]="pager" (selectedPage)='pageSelect($event) '></app-paging>
+            </nav>
+        </div>
+    </div>
+    <h5 *ngIf="attributeMessage" translate>
+        <br> product-detail.attr-message
+    </h5>
+</div>

@@ -1,0 +1,60 @@
+<div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselIndicators" *ngFor="let p of productDislpayArr;let i = index" [attr.data-slide-to]="i" [ngClass]="i == 0 ? 'active' : ''"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="loader-mid" appSpinner>
+            <mat-spinner mode="indeterminate" strokeWidth="3" [diameter]="60" class="loading">
+            </mat-spinner>
+        </div>
+        <div class="carousel-item" *ngFor="let j of productDisplayArr | slice:0:2; let k = index" [ngClass]="k == 0 ? 'active' : ''">
+            <img [src]="j.src" height="350" alt="Product Image">
+            <div class="carousel-caption">
+                <h5>{{j.heading}}</h5>
+                <p>{{j.description}}</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only" translate>home.prev</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only" translate>home.next</span>
+    </a>
+</div>
+<br>
+<hr>
+<h4 translate>
+    home.latest-addns
+</h4>
+<br>
+<div class="card-deck">
+    <div class="card" *ngFor="let category of categoryModel">
+        <span *ngIf="category.imageContent != null">
+      <div class="loader-mid" appSpinner>
+        <mat-spinner mode="indeterminate" strokeWidth="3" [diameter]="60" class="loading">
+        </mat-spinner>
+      </div>
+      <div class="card-image" [style.background-image]="'url('+ category.imageContent +')'"
+        alt="category.categoryValue.categoryName">
+        <div class="card-content">
+          <div>
+            <h3 class="card-title">{{category.categoryValue.categoryName}}</h3>
+            <p class="card-text">{{category.categoryValue.categoryDescription}}</p>
+          </div>
+        </div>
+      </div>
+    </span>
+    </div>
+</div>
+<br>
+<hr>
+<h4 translate>
+    home.featured-pdts
+</h4>
+<br>
+<div>
+    <app-featured-products></app-featured-products>
+</div>

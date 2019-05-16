@@ -1,0 +1,38 @@
+<div *ngIf="isUser">
+    <div class="title">
+        <h2>
+            Wishlist
+        </h2>
+    </div>
+    <div *ngIf="isWishlist">
+        <div class="loader-mid" appSpinner>
+            <mat-spinner mode="indeterminate" strokeWidth="3" [diameter]="60" class="loading">
+            </mat-spinner>
+        </div>
+        <div class="row" *ngFor="let pdt of productList">
+            <div class="col-md-2 col-sm-2 col-12 pdt-image">
+                <img [src]="pdt.image" class="image">
+            </div>
+            <div class="col-md-8 col-sm-8 col-12 pdt-name">
+                <p>{{pdt.productName}}</p>
+                <p class="short-desc">{{pdt.shortDescription}}</p>
+                <div class="short-desc pdt-link">
+                    <a (click)="moveToCart(pdt.productId)" class="border-right">move to cart</a><a (click)="delete(pdt.productId)">delete</a>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-12 price">
+                <p *ngIf="!pdt.isDiscounted">₹{{pdt.price}}</p>
+                <p *ngIf="pdt.isDiscounted">₹{{math.round((pdt.price)*(1-pdt.discountPercent/100))}}</p>
+            </div>
+            <div class="col-md-12 col-sm-12 col-12">
+                <hr class="pdt-division">
+            </div>
+        </div>
+        <nav>
+            <app-paging [pager]="pager" (selectedPage)='pageSelect($event)'></app-paging>
+        </nav>
+    </div>
+    <div *ngIf="!isWishlist" class="message-list">
+        <h4>Your wishlist is empty.</h4>
+    </div>
+</div>

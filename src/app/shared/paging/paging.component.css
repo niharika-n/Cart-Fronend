@@ -1,0 +1,28 @@
+.pagination {
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+ul.pagination {
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+ul.pagination li {
+    display: inline-block;
+}
+
+ul.pagination a {
+    color: #202020;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul.pagination .page-item.active .page-link {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+}

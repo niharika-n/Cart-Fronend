@@ -1,0 +1,39 @@
+<div class="container body-content">
+    <h3 translate>
+        dashboard.title
+    </h3>
+    <hr>
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-header bg-light text-dark" [routerLink]="['/admin/category']" title="{{'category.title' | translate}}">
+                <h5>
+                    {{'dashboard.categories' | translate}} ({{statistics.categoryCount}})
+                </h5>
+                <sub>
+          <p class="text-muted" > {{'dashboard.updated-on' | translate}} : {{categoryUpdateDate | date}}</p>
+        </sub>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush" *ngFor="let category of CategoryArr">
+                    <li class="list-group-item" (click)="getCategoryDetail(category.categoryId)">{{category.categoryName}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header bg-light text-dark" [routerLink]="['/admin/product']" title="{{'product.title' | translate}}
+            ">
+                <h5>
+                    {{'dashboard.products' | translate}} ({{statistics.productCount}})
+                </h5>
+                <sub>
+          <p class="text-muted"> {{'dashboard.updated-on' | translate}} : {{productUpdateDate | date}}</p>
+        </sub>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush" *ngFor="let product of ProductArr">
+                    <li class="list-group-item" (click)="getProductDetail(product.productId)">{{product.productName}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,71 @@
+<div *ngIf="isUser">
+    <div class="title">
+        <h2>
+            Cart
+        </h2>
+    </div>
+    <div *ngIf="isCart">
+        <div class="loader-mid" appSpinner>
+            <mat-spinner mode="indeterminate" strokeWidth="3" [diameter]="60" class="loading">
+            </mat-spinner>
+        </div>
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-12 border-right">
+                <div class="row border innner-rows" *ngFor="let pdt of productList">
+                    <div class="col-md-2 col-sm-2 col-12 pdt-image">
+                        <img [src]="pdt.image" class="image">
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-12 pdt-name">
+                        <p>{{pdt.product.productName}}</p>
+                        <div class="quantity">
+                            <p class="quantity-label">Quantity:
+                            </p>
+                            <input class="form-control quantity-value" (change)="newQuantity(pdt.productId, quantity.value)" value={{pdt.quantity}} type="number" #quantity max="10" min="1">
+                        </div>
+                        <div class="short-desc pdt-link">
+                            <a (click)="moveToWishlist(pdt.productId)" class="border-right">move to wishlist</a><a (click)="delete(pdt.productId)">delete</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-12 price">
+                        <p *ngIf="!pdt.isDiscounted">₹{{pdt.product.price}}</p>
+                        <p *ngIf="pdt.isDiscounted">₹{{math.round((pdt.product.price)*(1-pdt.product.discountPercent/100))}}</p>
+                    </div>
+                </div>
+                <nav>
+                    <app-paging [pager]="pager" (selectedPage)='pageSelect($event)'></app-paging>
+                </nav>
+            </div>
+            <div class="col-md-3 col-sm-3 col-12 order-division">
+                <h3 class="order-title">Order Details</h3>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                        <tr>
+                            <th>Total MRP</th>
+                            <td>₹{{orderDetail.mrp}}</td>
+                        </tr>
+                        <tr>
+                            <th>Discount</th>
+                            <td>-₹{{orderDetail.discount}}</td>
+                        </tr>
+                        <tr>
+                            <th>Tax</th>
+                            <td>₹{{orderDetail.estimatedTax}}</td>
+                        </tr>
+                        <tr>
+                            <th>Delivery Charges</th>
+                            <td>₹{{orderDetail.deliveryCharges}}</td>
+                        </tr>
+                        <tr>
+                            <th><b>Total</b></th>
+                            <td><b>₹{{orderDetail.total}}</b></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isCart" class="message-list">
+        <h4>Your Shopping Cart is empty.</h4>
+    </div>
+</div>

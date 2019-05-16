@@ -1,0 +1,25 @@
+<div class="container body-content">
+    <h3 translate>
+        templates.title
+    </h3>
+    <hr>
+    <div>
+        <div class="row">
+            <div class="col-md-2 col-sm-2 col-12">
+                <label for="Templates" translate> templates.choose</label>
+            </div>
+            <div class="col-md-10 col-sm-10 col-12">
+                <select class="form-control" name="Templates" id="Templates" (change)="onSelect($event)">
+          <option value="0" selected="true" disabled translate>templates.select</option>
+          <option *ngFor="let key of keys" [value]="key.id" [label]="key.templateName"></option>
+        </select>
+            </div>
+            <div class="col-md-8 col-sm-8 col-12" *ngIf="selectCheck != ''">
+                <h5 class="template-label">{{heading}}</h5>
+                <ckeditor #templateEditor name="templateEditor" [(ngModel)]="content" [readonly]="false" debounce="500" debounce="500">
+                </ckeditor>
+                <br>
+                <button type="submit" (click)="update(templateEditor.value)" class="btn btn-info" title="{{'common.submit' | translate}}" translate>common.submit</button>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,26 @@
+.review-heading {
+    display: flex;
+}
+
+.review-detail {
+    margin-bottom: 5px !important;
+    font-size: 15px;
+    margin: 0;
+}
+
+.review-userDetail {
+    margin-bottom: 5px !important;
+    font-size: 13px;
+}
+
+.review-division {
+    margin-top: 0px;
+}
+
+.rating-title {
+    margin: 15px 0 0 6px;
+}
+
+.noPadding {
+    padding: 0;
+}

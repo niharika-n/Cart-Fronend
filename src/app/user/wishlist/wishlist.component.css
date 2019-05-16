@@ -1,0 +1,92 @@
+.title {
+    height: 60px;
+    padding: 10px 20px;
+    background: aliceblue;
+}
+
+h2 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 300;
+}
+
+h4 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 300;
+}
+
+.image {
+    height: 120px;
+    overflow: hidden;
+}
+
+.row {
+    margin: 15px 10px;
+}
+
+.price {
+    color: rgb(156, 30, 30);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.pdt-name {
+    font-size: 17px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 600;
+}
+
+.pdt-image {
+    text-align: center;
+    width: inherit;
+    overflow: hidden;
+}
+
+p {
+    margin: 0;
+}
+
+.short-desc {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pdt-division {
+    margin-bottom: 0rem;
+}
+
+.pdt-link {
+    padding-top: 50px;
+}
+
+a {
+    cursor: pointer;
+    color: #17A2B8 !important;
+    padding: 0 15px;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
+
+.message-list {
+    text-align: center;
+    margin: 100px 0;
+}
+
+.loader-mid {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.loader-mid .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

@@ -1,0 +1,180 @@
+h4 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    display: inline;
+}
+
+h5 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    color: darkslategrey;
+    display: inline;
+}
+
+h6 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    color: darkslategrey;
+    display: inline;
+}
+
+p {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    display: inline;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 19px;
+}
+
+.discount {
+    color: rgb(156, 30, 30);
+    padding-left: 2%;
+    font-size: 19px;
+}
+
+.discount-price {
+    color: slategrey;
+    font-size: 18px;
+    padding-left: 2%;
+    text-decoration: line-through;
+}
+
+.loader-mid {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.loader-mid .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.buttons-wishlist {
+    padding: 25px 0px;
+}
+
+.btn {
+    padding: 9px 33px;
+    margin-right: 20px;
+}
+
+.text-btn {
+    font-weight: bold;
+}
+
+.icon {
+    font-size: 1.3rem;
+    padding-right: 12px;
+}
+
+.image-container {
+    width: inherit !important;
+    float: left;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.container .product-image {
+    display: block;
+    width: inherit;
+}
+
+.tab-division {
+    padding-top: 30px;
+}
+
+.quantity {
+    padding-top: 25px;
+    display: flex;
+}
+
+.quantity-input {
+    margin-left: 15px;
+}
+
+.quantity-label {
+    padding: 8px 0 0 0;
+    font-size: large;
+    color: darkslategrey;
+}
+
+.attr-table {
+    padding-top: 12px;
+}
+
+.product-description {
+    padding: 10px 5px;
+    text-align: justify;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    color: darkslategrey;
+}
+
+.review-btn {
+    padding: 7px;
+    margin: 0px;
+}
+
+.noPadding {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.rating-review-division {
+    display: flex !important;
+    place-content: end space-between;
+}
+
+.rating-display {
+    display: flex;
+}
+
+.rating-val {
+    padding-right: 10px;
+    font-weight: 500;
+    padding-top: 10px;
+    font-size: 25px;
+    margin: 0;
+    color: darkslategrey;
+}
+
+.rating-star {
+    padding-top: 15px;
+    color: #50E3C2;
+}
+
+.name-division-bar {
+    margin-top: 0px;
+}
+
+.icon-delete {
+    position: absolute;
+    padding-top: 25px;
+    padding-left: 570px;
+    color: #17a2b8;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.loader-mid {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.loader-mid .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

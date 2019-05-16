@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <nav id="sidebar">
+        <h5 translate>category.title</h5>
+        <hr>
+        <ul class="list-unstyled components">
+            <li [ngClass]="category === selectedCategory ? 'active': ''">
+                <a (click)="selectCategory(category.categoryName)"><b>{{category.categoryName}}</b></a>
+                <ul class="list-unstyled components" *ngFor="let child of category.children">
+                    <li [ngClass]="child.categoryId === selectedCategory.categoryId ? 'active': ''">
+                        <a (click)="selectCategory(child.categoryName)">{{child.categoryName}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

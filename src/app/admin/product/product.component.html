@@ -1,0 +1,69 @@
+<div class="container body-content">
+    <h3 translate>
+        product.title
+    </h3>
+    <hr>
+    <div>
+        <div class="form-group row">
+            <div class="col-md-3">
+                <input autocomplete="off" class="form-control" name="search" #search />
+            </div>
+            <div class="col-md-9">
+                <input type="submit" value="{{'common.search' | translate}}" class="btn btn-info" title="{{'common.search' | translate}}" (click)="listing(search.value)" /> &nbsp;
+                <input type="submit" value="{{'common.clear' | translate}}" class="btn btn-info" title="{{'common.clear' | translate}}" (click)="listing(search.value='')" name="Clear" /> &nbsp;
+                <button type="button" class="btn btn-info" [routerLink]="['add']" value="{{'common.add' | translate}}" title="{{'common.add' | translate}}" translate><i class="fa fa-plus-circle add-icon"></i> common.add</button>
+            </div>
+            <div class=" col-md-12 page-size">
+                <b translate>common.page-size</b> &nbsp;
+                <select #pageSize (change)="sizeSelect(pageSize.value)">
+          <option value=5 >5</option>
+          <option value=7 >7</option>
+          <option value=10 >10</option>
+        </select>
+            </div>
+        </div>
+        <div class="table-responsive" *ngIf="!message">
+            <table class="table table-bordered">
+                <tr>
+                    <th hidden translate>product.productID</th>
+                    <th appSort [data]="model" [sortKey]="'productName'" class="sort-column" (ColumnName)="selectColumn($event)" (Direction)="selectDirection($event)" translate>product.name <i *ngIf="sortColumn=='productName' && sortOrder" class="fa fa-arrow-circle-up" title="{{'common.asc' | translate}}"></i><i *ngIf="sortColumn=='productName' && !sortOrder" class="fa fa-arrow-circle-down" title="{{'common.desc' | translate}}"></i></th>
+                    <th appSort [data]="model" [sortKey]="'shortDescription'" class="sort-column" (ColumnName)="selectColumn($event)" (Direction)="selectDirection($event)" translate>product.short-desc <i *ngIf="sortColumn=='shortDescription' && sortOrder" class="fa fa-arrow-circle-up" title="{{'common.asc' | translate}}"></i><i *ngIf="sortColumn=='shortDescription' && !sortOrder" class="fa fa-arrow-circle-down"
+                            title="{{'common.desc' | translate}}"></i></th>
+                    <th translate>product.category</th>
+                    <th translate>product.quant</th>
+                    <th translate>product.price</th>
+                    <th translate>product.avail</th>
+                    <th appSort [data]="model" [sortKey]="'createdDate'" class="sort-column" (ColumnName)="selectColumn($event)" (Direction)="selectDirection($event)" translate>product.created-date <i *ngIf="sortColumn=='createdDate' && sortOrder" class="fa fa-arrow-circle-up icon" title="{{'common.asc' | translate}}"></i><i *ngIf="sortColumn=='createdDate' && !sortOrder" class="fa fa-arrow-circle-down icon"
+                            title="{{'common.desc' | translate}}"></i></th>
+                    <th translate>product.active</th>
+                    <th></th>
+                </tr>
+                <tr *ngFor="let product of model">
+                    <td hidden>{{product.productID}}</td>
+                    <td>{{product.productName}}</td>
+                    <td>{{product.shortDescription}}</td>
+                    <td>{{product.categoryName}}</td>
+                    <td>{{product.quantityInStock}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.visibleEndDate | date}}</td>
+                    <td>{{product.createdDate | date}}</td>
+                    <td>{{product.isActive}}</td>
+                    <td class="message">
+                        <a [routerLink]="['detail',(product.productId)]">
+                            <i class="fa fa-pencil icon" aria-hidden="true" title="{{'common.edit-title' | translate}}"></i>
+                        </a>&nbsp;
+                        <a>
+                            <i class="fa fa-times icon" aria-hidden="true" title="{{'common.delete-title' | translate}}" (click)="delete(product.productId)"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <nav>
+                <app-paging [pager]="pager" (selectedPage)='pageSelect($event)'></app-paging>
+            </nav>
+        </div>
+        <div *ngIf="message"><br>
+            <h4 class="message">{{message}}</h4>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-md-3 pdt-detail" *ngFor="let pdt of productDisplayArr" (click)="selectProduct(pdt.detail.productName, pdt.detail)">
+        <app-product-box [pdt]="pdt"></app-product-box>
+    </div>
+</div>
+<hr class="pagination-divider">
+<nav>
+    <app-paging [pager]="pager" (selectedPage)='pageSelect($event)'></app-paging>
+</nav>

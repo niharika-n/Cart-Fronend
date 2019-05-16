@@ -1,0 +1,117 @@
+.category-detail {
+    background-color: whitesmoke;
+    height: 300px;
+}
+
+.category-child {
+    height: 175px;
+    max-width: 340px;
+    border: none;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.category-title {
+    position: absolute;
+    top: 35px;
+    right: 55px;
+    height: 225px;
+    width: 300px;
+    padding: 25px;
+    border: none;
+    box-shadow: 0px 1px 3px 1px #66666642;
+}
+
+.card-title {
+    text-align: center;
+    padding-top: 40px;
+    margin-bottom: 0px;
+}
+
+.content {
+    margin-top: 25px;
+}
+
+.header-nav {
+    font-size: 25px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 300;
+}
+
+hr {
+    margin-top: .25rem;
+}
+
+h2 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 300;
+}
+
+h3 {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: darkslategrey;
+    font-weight: 300;
+}
+
+.card-deck {
+    margin-bottom: 25px;
+}
+
+.card-text {
+    color: darkslategrey;
+    text-align: center;
+}
+
+.card-image {
+    background-size: cover;
+    height: inherit;
+    background-color: rgba(151, 147, 147, 0.75);
+    background-blend-mode: multiply;
+}
+
+.child-title {
+    padding-top: 40px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+.child-desc {
+    padding: 15px;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+.container {
+    height: 300px;
+    width: 800px;
+    float: left;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.container .parent-image {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#category-image-display {
+    width: inherit !important;
+}
+
+.loader-mid {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 99;
+}
+
+.loader-mid .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
